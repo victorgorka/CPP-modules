@@ -5,7 +5,11 @@ class PhoneBook
 {
 	private:
 		Contact contacts[8];
+		int		_idx;
+		int		_aux;
 	public:
-		void	ftAdd(int idx);
-		void	ftSearch(int idx);
+		int		setIndex();
+		void	initAgenda();
+		void	addContact();
+		void	searchContact();
 };
