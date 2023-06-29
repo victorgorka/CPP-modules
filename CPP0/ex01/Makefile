@@ -1,8 +1,12 @@
 NAME = phonebook
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-SRC = phonebook.cpp
-OBJS = ${SRC:.cpp=.o}
+SRC =	main.cpp \
+		Contact.cpp \
+		PhoneBook.cpp \
+		input.cpp
+
+OBJS = ${SRC:%.cpp=%.o}
 
 all: $(NAME)
 
