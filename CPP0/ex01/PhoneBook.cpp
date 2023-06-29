@@ -1,8 +1,4 @@
-#include "PhoneBook.hpp"
-#include <cctype>
-#include <string>
-#include <iostream>
-#include <iomanip>
+#include "agenda.h"
 
 int		PhoneBook::setIndex()
 {
@@ -11,7 +7,10 @@ int		PhoneBook::setIndex()
 	else if (_idx == 8 && _aux < 8)
 		return (_aux);
 	else
+	{
+		_aux = 0;
 		return (0);
+	}
 }
 
 void	PhoneBook::addContact()
@@ -50,6 +49,7 @@ void	PhoneBook::addContact()
 			return ;
 	} while (attr.length() == 0);
 	contacts[i].setSecret(attr);
+	std::cout << std::endl;
 	if (_idx > 7)
 		_aux++;
 	else
@@ -82,7 +82,7 @@ int	PhoneBook::consultContact(std::string idx)
 {
 	int	i;
 
-	if (idx.length() > 1 || !isdigit(idx[0]))
+	if (idx.length() > 1 || !isdigit(idx[0]) || idx[0] > '0' + (_idx - 1))
 	{
 		std::cout << "Error: Just enter one of the available indices\n";
 		return (1);
@@ -94,7 +94,7 @@ int	PhoneBook::consultContact(std::string idx)
 		std::cout << "Last name: " << contacts[i].getLastName() << std::endl;
 		std::cout << "Nickname: " << contacts[i].getNickName() << std::endl;
 		std::cout << "Phone number: " << contacts[i].getPhoneNumber() << std::endl;
-		std::cout << "Secret: " << contacts[i].getSecret() << std::endl;
+		std::cout << "Secret: " << contacts[i].getSecret() << std::endl << std::endl;
 		return (0);
 	}
 }
@@ -112,7 +112,7 @@ void	PhoneBook::searchContact()
 		std::cout << std::setw(10) << i						<< "|";
 		std::cout << getFormat(contacts[i].getFirstName())	<< "|";
 		std::cout << getFormat(contacts[i].getLastName())	<< "|";
-		std::cout << getFormat(contacts[i].getNickName())	<< "|\n";
+		std::cout << getFormat(contacts[i].getNickName())	<< "|\n\n";
 	}
 	do
 	{
