@@ -11,7 +11,7 @@ class Contact
 	public:
 		std::string	getFirstName();
 		std::string	getLastName();
-		std::string	getNicktName();
+		std::string	getNickName();
 		std::string	getPhoneNumber();
 		std::string	getSecret();
 		void		setFirstName(std::string fname);

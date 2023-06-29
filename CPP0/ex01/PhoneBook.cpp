@@ -1,6 +1,8 @@
 #include "PhoneBook.hpp"
+#include <cctype>
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 int		PhoneBook::setIndex()
 {
@@ -8,7 +10,7 @@ int		PhoneBook::setIndex()
 		return (_idx);
 	else if (_idx == 8 && _aux < 8)
 		return (_aux);
-	else if (_idx == 8 && _aux == 8)
+	else
 		return (0);
 }
 
@@ -48,7 +50,7 @@ void	PhoneBook::addContact()
 			return ;
 	} while (attr.length() == 0);
 	contacts[i].setSecret(attr);
-	if (_idx == 7)
+	if (_idx > 7)
 		_aux++;
 	else
 		_idx++;
@@ -62,14 +64,60 @@ void	PhoneBook::initAgenda()
 
 std::string	getFormat(std::string str)
 {
+	std::string	format;
 
+	format = str;
+	if (str.length() > 10)
+	{
+		format = str.substr(0, 9);
+		format += ".";
+		return (format);
+	}
+	else if (str.length() <= 10)
+		std::cout << std::setw(10);
+	return (format);
+}
+
+int	PhoneBook::consultContact(std::string idx)
+{
+	int	i;
+
+	if (idx.length() > 1 || !isdigit(idx[0]))
+	{
+		std::cout << "Error: Just enter one of the available indices\n";
+		return (1);
+	}
+	else
+	{
+		i = idx[0] - '0';
+		std::cout << "First name: " << contacts[i].getFirstName() << std::endl;
+		std::cout << "Last name: " << contacts[i].getLastName() << std::endl;
+		std::cout << "Nickname: " << contacts[i].getNickName() << std::endl;
+		std::cout << "Phone number: " << contacts[i].getPhoneNumber() << std::endl;
+		std::cout << "Secret: " << contacts[i].getSecret() << std::endl;
+		return (0);
+	}
 }
 
 void	PhoneBook::searchContact()
 {
-	std::cout << "    index|" << "    fname|" << "    lname|" << "    nname|\n";
+	std::string	i;
+
+	std::cout	<< std::setw(10) << "index" << "|"
+				<< std::setw(10) << "fname" << "|"
+				<< std::setw(10) << "lname" << "|"
+				<< std::setw(10) << "nname" << "|\n";
 	for (int i = 0; i < _idx; i++)
 	{
-		std::cout << getFormat(contacts[i].getFirstName);
+		std::cout << std::setw(10) << i						<< "|";
+		std::cout << getFormat(contacts[i].getFirstName())	<< "|";
+		std::cout << getFormat(contacts[i].getLastName())	<< "|";
+		std::cout << getFormat(contacts[i].getNickName())	<< "|\n";
 	}
+	do
+	{
+		std::cout << "Enter the index of the the contact: ";
+		if (!std::getline(std::cin, i))
+			exit (0);
+	} while (consultContact(i));
 }

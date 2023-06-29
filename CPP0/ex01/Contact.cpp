@@ -4,7 +4,7 @@
 
 std::string Contact::getFirstName()		{return (_firstName);	}
 std::string Contact::getLastName()		{return (_lastName);	}
-std::string Contact::getNicktName()		{return (_nickName);	}
+std::string Contact::getNickName()		{return (_nickName);	}
 std::string Contact::getPhoneNumber()	{return (_phoneNumber);	}
 std::string Contact::getSecret()		{return (_secret);		}
 
