@@ -1,14 +1,12 @@
-NAME = phonebook
+NAME = test
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-SRC =	main.cpp \
-		Contact.cpp \
-		PhoneBook.cpp \
-		input.cpp
+SRC =	tests.cpp \
+		Account.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
-all: $(NAME)
+all:	$(NAME)
 
 %.o:	%.cpp
 		c++ $(CFLAG) -c $<
