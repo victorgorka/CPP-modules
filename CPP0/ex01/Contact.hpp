@@ -1,5 +1,11 @@
-#include "agenda.h"
 
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
+// includes
+# include "agenda.h"
+
+// classes
 class Contact
 {
 	private:
@@ -20,3 +26,5 @@ class Contact
 		void		setPhoneNumber(std::string number);
 		void		setSecret(std::string secret);
 };
+
+#endif
