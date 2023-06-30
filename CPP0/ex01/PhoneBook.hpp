@@ -1,5 +1,12 @@
+
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+// includes
+
 #include "agenda.h"
 
+// classes
 class PhoneBook
 {
 	private:
@@ -14,3 +21,5 @@ class PhoneBook
 		void	searchContact();
 
 };
+
+#endif

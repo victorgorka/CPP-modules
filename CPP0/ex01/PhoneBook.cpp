@@ -112,7 +112,7 @@ void	PhoneBook::searchContact()
 		std::cout << std::setw(10) << i						<< "|";
 		std::cout << getFormat(contacts[i].getFirstName())	<< "|";
 		std::cout << getFormat(contacts[i].getLastName())	<< "|";
-		std::cout << getFormat(contacts[i].getNickName())	<< "|\n\n";
+		std::cout << getFormat(contacts[i].getNickName())	<< "|\n";
 	}
 	do
 	{
