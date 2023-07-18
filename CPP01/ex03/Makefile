@@ -1,7 +1,10 @@
 NAME = zombie
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-SRC =	main.cpp
+SRC =	Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
+		main.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
