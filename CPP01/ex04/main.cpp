@@ -28,6 +28,8 @@ void	ft_replace(std::string inf, std::string s1, std::string s2)
 		if (!infile.eof())
 			outfile << std::endl;
 	}
+	infile.close();
+	outfile.close();
 }
 
 int	main(int argc, char **argv)
