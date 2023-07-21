@@ -1,10 +1,8 @@
-NAME = zombie
+NAME = harlfilter
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-SRC =	Zombie.cpp \
-		randomChump.cpp \
-		newZombie.cpp \
-		main.cpp
+SRC =	main.cpp \
+		Harl.cpp
 
 OBJS = ${SRC:.cpp=.o}
 

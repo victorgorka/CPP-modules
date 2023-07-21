@@ -1,10 +1,7 @@
-NAME = zombie
+NAME = sed
 CFLAG = -Wall -Wextra -Werror -std=c++98
 
-SRC =	Zombie.cpp \
-		randomChump.cpp \
-		newZombie.cpp \
-		main.cpp
+SRC =	main.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
