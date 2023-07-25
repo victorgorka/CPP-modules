@@ -20,7 +20,7 @@ class Fixed
 		Fixed & operator=(const Fixed &assign);
 
 		// Methods
-		int		getRawBits( void ) const;
+		int		getRawBits ( void ) const;
 		void	setRawBits ( int const raw );
 		float	toFloat ( void ) const;
 		int		toInt ( void ) const;
@@ -29,5 +29,5 @@ class Fixed
 		int					_rawBits;
 		static const int	_fracc = 8;
 };
-
+std::ostream & operator<<(std::ostream &os, const Fixed &fix);
 #endif
