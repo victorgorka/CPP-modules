@@ -38,7 +38,6 @@ Fixed::~Fixed()
 // Methods
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called\n";
 	return (_rawBits);
 }
 
