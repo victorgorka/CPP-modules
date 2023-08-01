@@ -3,7 +3,8 @@ CFLAG = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp \
 		Fixed.cpp \
-		Point.cpp
+		Point.cpp \
+		bsp.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
