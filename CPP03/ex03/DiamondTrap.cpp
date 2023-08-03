@@ -29,7 +29,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &copy)
 // Destructor
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "\e[0;31mScavTrap\e[0m "<< this->_name << " \e[0;31mdestructor called\e[0m\n";
+	std::cout << "\e[0;31mDiamondTrap\e[0m "<< this->_name << " \e[0;31mdestructor called\e[0m\n";
 }
 
 // Methods

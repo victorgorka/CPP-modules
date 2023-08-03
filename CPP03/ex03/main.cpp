@@ -20,6 +20,8 @@ int main(void)
 	DiamondTrap	titi = DiamondTrap("nana");
 
 	titi.whoAmI();
+	titi.attack("romeo");
+	titi.beRepaired(100);
 	std::cout << titi.getName() << ":\n"
 								<< "hitP = " << titi.getHitP() << std::endl
 								<< "energyP = " << titi.getEnergyP() << std::endl
