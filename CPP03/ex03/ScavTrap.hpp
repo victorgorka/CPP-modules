@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 16:34:01 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/03 12:26:52 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/04 11:26:02 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ class ScavTrap: virtual public ClapTrap
 		// Methods
 		void	guardGate();
 		void	attack(const std::string &target);
-
-	private:
+		void	beRepaired(unsigned int amount);
+	
+	protected:
+		int			_hitP;
+		int			_energyP;
+		int			_attackD;
 		
 };
 

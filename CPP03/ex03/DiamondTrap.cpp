@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:24:57 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/03 17:24:58 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/04 11:38:59 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap(std::string name)
 	this->_name = name;
 	this->ClapTrap::_name = name + "_clap_name";
 	_hitP = FragTrap::getHitP();
-	_energyP = 50;
+	_energyP = ScavTrap::_energyP;
 	_attackD = FragTrap::getAttackD();
 }
 
@@ -54,6 +54,7 @@ void			DiamondTrap::whoAmI(void)
 {
 	std::cout << "ClapTrap name: " << ClapTrap::_name << " DiamondTrap name: " << _name << std::endl;
 }
+
 
 std::string		DiamondTrap::getName(void){return _name;}
 int				DiamondTrap::getHitP(void){return _hitP;}

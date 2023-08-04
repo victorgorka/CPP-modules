@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:25:01 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/03 17:25:02 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/04 11:38:48 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class DiamondTrap: public ScavTrap, public FragTrap
+class DiamondTrap: public FragTrap, public ScavTrap
 {
 	public:
 		// Constructors
