@@ -17,14 +17,16 @@
 
 int main(void)
 {
-	DiamondTrap	titi = DiamondTrap("nana");
+	DiamondTrap	ruby = DiamondTrap("ruby");
 
-	titi.whoAmI();
-	titi.attack("romeo");
-	titi.beRepaired(100);
-	std::cout << titi.getName() << ":\n"
-								<< "hitP = " << titi.getHitP() << std::endl
-								<< "energyP = " << titi.getEnergyP() << std::endl
-								<< "attackD = " << titi.getAttackD() << std::endl << std::endl;
+	ruby.whoAmI();
+	ruby.highFivesGuys();
+	ruby.attack("romeo");
+	ruby.beRepaired(100);
+	ruby.takeDamage(10);
+	std::cout << ruby.getName() << ":\n"
+								<< "hitP = " << ruby.getHitP() << std::endl
+								<< "energyP = " << ruby.getEnergyP() << std::endl
+								<< "attackD = " << ruby.getAttackD() << std::endl << std::endl;
 	return 0;
 }

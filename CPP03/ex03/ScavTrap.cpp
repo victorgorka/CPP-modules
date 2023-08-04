@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 16:33:57 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/03 12:35:30 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/04 11:24:05 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 ScavTrap::ScavTrap()
 {
 	std::cout << "\e[0;31mScavTrap constructor called\e[0m\n";
-	_hitP = 100;
+	this->_hitP = 100;
 	_energyP = 50;
-	_attackD = 20;
+	this->_attackD = 20;
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -55,6 +55,18 @@ void	ScavTrap::attack(const std::string &target)
 	{
 		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing "<< this->_attackD << " points of damage!\n";
 		this->_energyP--;
+	}
+}
+
+void	ScavTrap::beRepaired(unsigned int amount)
+{
+	if (this->_energyP <= 0 || this->_hitP <= 0)
+		std::cout << "Not possible to repair\n";
+	else
+	{
+		this->_energyP--;
+		this->_hitP += amount;
+		std::cout << this->_name << " repaired " << amount << " hit points!\n";
 	}
 }
 
