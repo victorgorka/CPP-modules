@@ -19,11 +19,16 @@ Animal::~Animal()
 	std::cout << "\e[0;31mDestructor called of Animal\e[0m" << std::endl;
 }
 
-
 // Methods
-void	Animal::makeSound()
+void	Animal::makeSound() const
 {
+	if (!this->type.compare("Dog"))
+		std::cout << "Woof, woof\n";
+	else if (!this->type.compare("Cat"))
+		std::cout << "Meow, meow\n";
 }
+
+std::string Animal::getType() const { return type;}
 
 // Operators
 Animal & Animal::operator=(const Animal &assign)

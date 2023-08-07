@@ -20,16 +20,10 @@ Dog::~Dog()
 	std::cout << "\e[0;31mDestructor called of Dog\e[0m" << std::endl;
 }
 
-// Methods
-void	Dog::makeSound()
-{
-	std::cout << "woof woof\n";
-}
-
 // Operators
 Dog & Dog::operator=(const Dog &assign)
 {
-	(void) assign;
+	(void)assign;
 	return *this;
 }
 

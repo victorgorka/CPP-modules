@@ -1,22 +1,22 @@
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
 # include <string>
 # include "Animal.hpp"
 
-class Dog: public Animal
+class Cat: public Animal
 {
 	public:
 		// Constructors
-		Dog();
-		Dog(const Dog &copy);
+		Cat();
+		Cat(const Cat &copy);
 		
 		// Destructor
-		~Dog();
+		~Cat();
 		
 		// Operators
-		Dog & operator=(const Dog &assign);
+		Cat & operator=(const Cat &assign);
 };
 
 #endif
