@@ -45,9 +45,7 @@ std::string	Brain::getIdea(int i) { return this->ideas[i];}
 // Operators
 Brain & Brain::operator=(const Brain &assign)
 {
-	std::cout << "holis\n";
 	for(int i = 0; i < 100; i++)
 		this->ideas[i] = assign.ideas[i];
 	return *this;
 }
-

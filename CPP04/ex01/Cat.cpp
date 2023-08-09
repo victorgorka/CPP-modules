@@ -29,7 +29,6 @@ Cat & Cat::operator=(const Cat &assign)
 	delete this->brain;
 
 	this->brain = new Brain();
-	assign.brain->printIdeas();
 	this->setBrain(brain, assign.brain);
 	return *this;
 }
