@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:02:42 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:43 by vde-prad         ###   ########.fr       */
+/*   Created: 2023/08/09 19:01:59 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/10 13:43:55 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include <iostream>
 # include <string>
-# include "Animal.hpp"
+# include "Brain.hpp"
 
-class Dog: public Animal
+class AAnimal
 {
 	public:
 		// Constructors
-		Dog();
-		Dog(const Dog &copy);
+		AAnimal();
+		AAnimal(const AAnimal &copy);
 		
 		// Destructor
-		~Dog();
+		virtual ~AAnimal();
 		
 		// Operators
-		Dog & operator=(const Dog &assign);
+		AAnimal & operator=(const AAnimal &assign);
+
+		// Methods
+		virtual void		makeSound(void) const = 0;
+		std::string			getType() const;
+		void				setBrain(std::string)const;
+		void				setBrain(Brain *, const Brain *);
+		void				printBrain(void) const;
+	protected:
+		std::string	type;
+		Brain *brain;
 };
 
 #endif

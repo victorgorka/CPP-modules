@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:00 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:01 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:46:19 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 // Constructors
-Animal::Animal()
+AAnimal::AAnimal()
 {
 	std::cout << "\e[0;33mDefault Constructor called of Animal\e[0m" << std::endl;
 	brain = new Brain();
 }
 
-Animal::Animal(const Animal &copy)
+AAnimal::AAnimal(const AAnimal &copy)
 {
 	brain = new Brain(*copy.brain);
 	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
@@ -27,28 +27,20 @@ Animal::Animal(const Animal &copy)
 
 
 // Destructor
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
 	std::cout << "\e[0;31mDestructor called of Animal\e[0m" << std::endl;
 	delete brain;
 }
 
 // Methods
-void	Animal::makeSound() const
-{
-	if (!this->type.compare("Dog"))
-		std::cout << "Woof, woof\n";
-	else if (!this->type.compare("Cat"))
-		std::cout << "Meow, meow\n";
-}
-
-std::string Animal::getType() const { return type;}
-void		Animal::setBrain(std::string idea) const {this->brain->setIdeas(idea);}
-void		Animal::setBrain(Brain *brainA, const Brain *brainB) {this->brain->setIdeas(brainA, brainB);}
-void		Animal::printBrain(void) const { this->brain->printIdeas();}
+std::string AAnimal::getType() const { return type;}
+void		AAnimal::setBrain(std::string idea) const {this->brain->setIdeas(idea);}
+void		AAnimal::setBrain(Brain *brainA, const Brain *brainB) {this->brain->setIdeas(brainA, brainB);}
+void		AAnimal::printBrain(void) const { this->brain->printIdeas();}
 
 // Operators
-Animal & Animal::operator=(const Animal &assign)
+AAnimal & AAnimal::operator=(const AAnimal &assign)
 {
 	delete this->brain;
 

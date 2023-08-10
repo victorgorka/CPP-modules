@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:02:45 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:46 by vde-prad         ###   ########.fr       */
+/*   Created: 2023/08/09 19:01:55 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/10 14:00:09 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 // Constructors
 Cat::Cat()
@@ -21,7 +22,7 @@ Cat::Cat()
 
 Cat::Cat(const Cat &copy)
 {
-	*this = copy;
+	*this->brain = *copy.brain;
 	std::cout << "\e[0;33mCopy Constructor called of Cat\e[0m" << std::endl;
 }
 
@@ -32,11 +33,20 @@ Cat::~Cat()
 	std::cout << "\e[0;31mDestructor called of Cat\e[0m" << std::endl;
 }
 
+void	Cat::makeSound(void) const
+{
+	std::cout << "Meauw\n";
+}
+
+// Methods
 
 // Operators
 Cat & Cat::operator=(const Cat &assign)
 {
-	(void) assign;
+	delete this->brain;
+
+	this->brain = new Brain();
+	this->setBrain(brain, assign.brain);
 	return *this;
 }
 

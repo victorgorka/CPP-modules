@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:02:42 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:43 by vde-prad         ###   ########.fr       */
+/*   Created: 2023/08/09 19:01:54 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/10 13:59:01 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
 # include <string>
-# include "Animal.hpp"
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Dog: public Animal
+class Cat: public AAnimal
 {
 	public:
 		// Constructors
-		Dog();
-		Dog(const Dog &copy);
+		Cat();
+		Cat(const Cat &copy);
 		
 		// Destructor
-		~Dog();
+		~Cat();
 		
 		// Operators
-		Dog & operator=(const Dog &assign);
+		Cat &operator=(const Cat &assign);
+
+		// Methods
+		virtual void	makeSound(void) const;
 };
 
 #endif
