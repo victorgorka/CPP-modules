@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:01:28 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/10 14:06:25 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/11 20:34:21 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@
 #include "WrongCat.hpp"
 #include "Brain.hpp"
 
+// void	leak(void)
+// {
+// 	system("leaks aanimal");
+// }
+
 int main()
 {
+	// atexit(leak);
 	Cat *garfield = new Cat();
 
 	garfield->makeSound();

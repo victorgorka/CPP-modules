@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:01:28 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:01:29 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/11 20:36:10 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,28 @@
 #include "WrongCat.hpp"
 #include "Brain.hpp"
 
+// void	leak(void)
+// {
+// 	system("leaks brain");
+// }
+
 int main()
 {
+	// atexit(leak);
 	const Animal* j = new Dog();
 	const Animal* h = new Cat();
-	// j->setBrain("trust humans\n");
-	// j->printBrain();
 	delete j;//should not create a leak
 	delete h;
 
-	Cat *i = new Cat();
+	Cat i = Cat();
 
-	i->setBrain("Dont trust humans\n");
-
-	Cat r = Cat(*i);
+	i.setBrain("Dont trust humans\n");
+	puts("hola");
+	Cat r = Cat(i);
 
 	r.printBrain();
-	r = *i;
-	i->setBrain("trust humans\n");
-	delete i;
+	r = i;
+	i.setBrain("trust humans\n");
 	r.printBrain();
 	return 0;
 }

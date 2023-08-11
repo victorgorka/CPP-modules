@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:00 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:01 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/11 19:15:42 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 Animal::Animal()
 {
 	std::cout << "\e[0;33mDefault Constructor called of Animal\e[0m" << std::endl;
-	brain = new Brain();
 }
 
 Animal::Animal(const Animal &copy)
 {
-	brain = new Brain(*copy.brain);
 	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
+	*this = copy;
 }
 
 
@@ -30,7 +29,6 @@ Animal::Animal(const Animal &copy)
 Animal::~Animal()
 {
 	std::cout << "\e[0;31mDestructor called of Animal\e[0m" << std::endl;
-	delete brain;
 }
 
 // Methods
@@ -43,17 +41,10 @@ void	Animal::makeSound() const
 }
 
 std::string Animal::getType() const { return type;}
-void		Animal::setBrain(std::string idea) const {this->brain->setIdeas(idea);}
-void		Animal::setBrain(Brain *brainA, const Brain *brainB) {this->brain->setIdeas(brainA, brainB);}
-void		Animal::printBrain(void) const { this->brain->printIdeas();}
 
 // Operators
 Animal & Animal::operator=(const Animal &assign)
 {
-	delete this->brain;
-
-	this->brain = new Brain();
-	assign.brain->printIdeas();
-	this->setBrain(brain, assign.brain);
+	(void)assign;
 	return *this;
 }

@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:01:59 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/10 13:43:55 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/11 20:33:57 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,8 @@ class AAnimal
 		// Methods
 		virtual void		makeSound(void) const = 0;
 		std::string			getType() const;
-		void				setBrain(std::string)const;
-		void				setBrain(Brain *, const Brain *);
-		void				printBrain(void) const;
 	protected:
 		std::string	type;
-		Brain *brain;
 };
 
 #endif
