@@ -16,10 +16,12 @@ class Cure : public AMateria
 		~Cure();
 		
 		// Operators
-		Cure & operator=(const Cure &assign);
+		Cure &operator=(const Cure &assign);
 		
-	private:
-		
+		// Methods
+		AMateria *clone();
+		void use(ICharacter& target);
+
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "Ice.hpp"
+#include "AMateria.hpp"
 
 // Constructors
 Ice::Ice()
@@ -20,11 +21,17 @@ Ice::~Ice()
 	std::cout << "\e[0;31mDestructor called of Ice\e[0m" << std::endl;
 }
 
+// Methods
+AMateria *Ice::clone()
+{
+	AMateria *cure = new Ice();
+	return cure;
+}
 
 // Operators
 Ice & Ice::operator=(const Ice &assign)
 {
-	(void) assign;
+	this->_type =  assign._type;
 	return *this;
 }
 

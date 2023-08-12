@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 17:42:35 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/10 20:28:41 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/12 16:36:08 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include "ICharacter.hpp"
 
+class ICharacter;
 class AMateria
 {
 	public:
@@ -35,13 +36,9 @@ class AMateria
 		virtual AMateria *clone() = 0;
 		virtual void use(ICharacter& target);
 		
-	private:
-		AMateria();
-	
-	
 	protected:
 		std::string _type;
-		
+		AMateria();
 };
 
 #endif

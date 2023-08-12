@@ -1,4 +1,5 @@
 #include "Cure.hpp"
+#include "AMateria.hpp"
 
 // Constructors
 Cure::Cure()
@@ -20,11 +21,22 @@ Cure::~Cure()
 	std::cout << "\e[0;31mDestructor called of Cure\e[0m" << std::endl;
 }
 
+// Methods
+AMateria *Cure::clone()
+{
+	AMateria *cure = new Cure();
+	return cure;
+}
+
+void use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() <<"'s wounds *\n";
+}
 
 // Operators
 Cure & Cure::operator=(const Cure &assign)
 {
-	(void) assign;
+	this->_type =  assign._type;
 	return *this;
 }
 

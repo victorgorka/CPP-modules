@@ -4,7 +4,9 @@ CFLAG = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 SRC =	main.cpp \
 		AMateria.cpp \
 		Ice.cpp \
-		cure.cpp
+		Cure.cpp \
+		Character.cpp \
+		ICharacter.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
