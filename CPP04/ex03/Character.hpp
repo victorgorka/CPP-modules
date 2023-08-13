@@ -28,7 +28,7 @@ class Character : public ICharacter
 
 	private:
 		std::string	_name;
-		AMateria*	inventory[4];
+		AMateria*	_inventory[4];
 
 };
 
