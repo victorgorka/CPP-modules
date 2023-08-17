@@ -4,6 +4,10 @@
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
+
+class AMateria;
+class ICharacter;
 
 class Ice : public AMateria
 {
@@ -20,7 +24,7 @@ class Ice : public AMateria
 		
 		// Methods
 		AMateria *clone();
-		void use(ICharacter& target);
+		// virtual void use(ICharacter& target);
 
 };
 

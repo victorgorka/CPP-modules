@@ -6,7 +6,9 @@ SRC =	main.cpp \
 		Ice.cpp \
 		Cure.cpp \
 		Character.cpp \
-		ICharacter.cpp
+		ICharacter.cpp \
+		IMateriaSource.cpp \
+		MateriaSource.cpp
 
 OBJS = ${SRC:.cpp=.o}
 

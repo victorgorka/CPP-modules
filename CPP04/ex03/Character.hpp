@@ -21,14 +21,16 @@ class Character : public ICharacter
 		Character & operator=(const Character &assign);
 		
 		// Methods
-		std::string const & getName() const;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
+		std::string const	&getName(void) const;
+		void 				equip(AMateria* m);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter& target);
+		void				printInv(void);
 
 	private:
 		std::string	_name;
 		AMateria*	_inventory[4];
+		int			init;
 
 };
 

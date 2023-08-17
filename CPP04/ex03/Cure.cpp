@@ -28,10 +28,10 @@ AMateria *Cure::clone()
 	return cure;
 }
 
-void use(ICharacter& target)
-{
-	std::cout << "* heals " << target.getName() <<"'s wounds *\n";
-}
+// void Cure::use(ICharacter& target)
+// {
+// 	std::cout << "* shoots an ice bolt at " << target.getName() <<" *\n";
+// }
 
 // Operators
 Cure & Cure::operator=(const Cure &assign)
@@ -39,4 +39,3 @@ Cure & Cure::operator=(const Cure &assign)
 	this->_type =  assign._type;
 	return *this;
 }
-

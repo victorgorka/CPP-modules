@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 17:42:35 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/12 16:36:08 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/14 20:11:34 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "ICharacter.hpp"
 
 class ICharacter;
+
 class AMateria
 {
 	public:

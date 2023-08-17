@@ -28,6 +28,11 @@ AMateria *Ice::clone()
 	return cure;
 }
 
+// void Ice::use(ICharacter& target)
+// {
+// 	std::cout << "* heals " << target.getName() <<"'s wounds *\n";
+// }
+
 // Operators
 Ice & Ice::operator=(const Ice &assign)
 {
