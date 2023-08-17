@@ -15,12 +15,8 @@ MateriaSource::MateriaSource(const MateriaSource &copy)
 	{
 		if (this->_source[i] == NULL)
 		{
-			if (copy.getType() == "ice")
-				this->_source[i] = new Cure;
-			else if (copy.getType() == "cure")
-				this->_source[i] = new Ice;
-			else
-				return 0;
+			if (copy._source[i] != NULL)
+				this->_source[i] = copy._source[i]->clone();
 		}
 	}
 }
@@ -66,7 +62,13 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 // Operators
 MateriaSource & MateriaSource::operator=(const MateriaSource &assign)
 {
-	(void) assign;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_source[i] != NULL)
+			delete this->_source[i];
+		if (copy._source[i] != NULL)
+			this->_source[i] = copy._source[i]->clone();
+	}
 	return *this;
 }
 
