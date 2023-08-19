@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:47 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:48 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:32:32 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ std::string Animal::getType() const { return type;}
 // Operators
 Animal & Animal::operator=(const Animal &assign)
 {
-	(void) assign;
+	std::cout << "Animal assignment operator overload\n";
+	this->type = assign.type;
 	return *this;
 }
 

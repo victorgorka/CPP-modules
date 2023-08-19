@@ -3,11 +3,9 @@
 // Constructors
 Character::Character()
 {
-	std::cout << "\e[0;33mDefault Constructor called of Character\e[0m" << std::endl;
 	this->_name = "unnamed";
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
-	this->init = 1;
 }
 
 Character::Character(std::string name)
@@ -15,12 +13,10 @@ Character::Character(std::string name)
 	this->_name = name;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
-	this->init = 1;
 }
 
 Character::Character(const Character &copy)
 {
-	std::cout << "\e[0;33mCopy Constructor called of Character\e[0m" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (copy._inventory[i] == NULL)
@@ -35,7 +31,6 @@ Character::Character(const Character &copy)
 // Destructor
 Character::~Character()
 {
-	std::cout << "\e[0;31mDestructor called of Character\e[0m" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i] != NULL)
@@ -57,7 +52,7 @@ void Character::equip(AMateria* m)
 	{
 		if (_inventory[i] == NULL)
 		{
-			std::cout << this->_name << " equips " << m->getType() << std::endl;
+			// std::cout << this->_name << " equips " << m->getType() << " index: " << i << std::endl;
 			_inventory[i] = m;
 			return ;
 		}
@@ -68,8 +63,8 @@ void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4 && _inventory[idx] != NULL)
 	{
-		std::cout << _name << " unequiped " << _inventory[idx]->getType()
-					<< " idx: " << idx << std::endl;
+		// std::cout << _name << " unequiped " << _inventory[idx]->getType()
+		// 			<< " idx: " << idx << std::endl;
 		_inventory[idx] = NULL;
 	}
 }
@@ -80,16 +75,16 @@ void Character::use(int idx, ICharacter& target)
 		_inventory[idx]->use(target);
 }
 
-void Character::printInv(void)
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (_inventory[i] != NULL && _inventory[i]->getType() == "ice")
-			std::cout << _name << ": ice" << " idx: " << i << std::endl;
-		else if (_inventory[i] != NULL && _inventory[i]->getType() == "cure")
-			std::cout << _name << ": cure" << " idx: " << i << std::endl;
-	}
-}
+// void Character::printInv(void)
+// {
+// 	for (int i = 0; i < 4; i++)
+// 	{
+// 		if (_inventory[i] != NULL && _inventory[i]->getType() == "ice")
+// 			std::cout << _name << ": ice" << " idx: " << i << std::endl;
+// 		else if (_inventory[i] != NULL && _inventory[i]->getType() == "cure")
+// 			std::cout << _name << ": cure" << " idx: " << i << std::endl;
+// 	}
+// }
 
 // Operators
 Character & Character::operator=(const Character &assign)

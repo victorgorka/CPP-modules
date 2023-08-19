@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:00 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/11 20:25:46 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/19 15:33:49 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ AAnimal::AAnimal()
 
 AAnimal::AAnimal(const AAnimal &copy)
 {
-	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
-	*this = copy;
+	(void)copy;
 }
 
 

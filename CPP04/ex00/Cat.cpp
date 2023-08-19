@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:45 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:46 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:32:22 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ Cat::~Cat()
 // Operators
 Cat & Cat::operator=(const Cat &assign)
 {
-	(void) assign;
+	std::cout << "Cat assignment operator overload\n";
+	this->type = assign.type;
 	return *this;
 }
 

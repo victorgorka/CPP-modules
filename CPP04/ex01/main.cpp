@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:01:28 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/11 20:36:10 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:36:09 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int main()
 	Cat i = Cat();
 
 	i.setBrain("Dont trust humans\n");
-	puts("hola");
 	Cat r = Cat(i);
 
 	r.printBrain();

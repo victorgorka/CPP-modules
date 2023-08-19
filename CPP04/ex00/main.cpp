@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:41 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:42 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:35:23 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
+
+// void	leak(void)
+// {
+// 	system("leaks animal");
+// }
 
 int main()
 {
@@ -40,5 +45,6 @@ int main()
 	delete meta;
 	delete j;
 	delete i;
+	// atexit(leak);
 	return 0;
 }

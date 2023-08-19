@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 17:42:35 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/14 20:11:34 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:21:45 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,10 @@ class AMateria
 	public:
 		// Constructors
 		AMateria(std::string const &type);
-		AMateria(const AMateria &copy);
 		
 		// Destructor
 		virtual ~AMateria();
 		
-		// Operators
-		AMateria & operator=(const AMateria &assign);
 		
 		// Methods
 		std::string const &getType() const;
@@ -40,6 +37,8 @@ class AMateria
 	protected:
 		std::string _type;
 		AMateria();
+		AMateria(const AMateria &copy);
+		AMateria & operator=(const AMateria &assign);
 };
 
 #endif

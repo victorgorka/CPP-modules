@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:43 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:44 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:32:43 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ Dog::~Dog()
 // Operators
 Dog & Dog::operator=(const Dog &assign)
 {
-	(void)assign;
+	std::cout << "Cat assignment operator overload\n";
+	this->type = assign.type;
 	return *this;
 }
 

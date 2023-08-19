@@ -11,7 +11,7 @@ class ICharacter
 {
 	public:
 		// Destructor
-		virtual ~ICharacter();
+		virtual ~ICharacter(){};
 
 		// Methods
 		virtual std::string const & getName() const = 0;
@@ -19,7 +19,7 @@ class ICharacter
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
 
-		virtual void				printInv(void) = 0; // borrar antes de entregar
+		// virtual void				printInv(void) = 0; // borrar antes de entregar
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:01:28 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/11 20:34:21 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/19 16:36:02 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@
 
 int main()
 {
-	// atexit(leak);
-	Cat *garfield = new Cat();
+	AAnimal *garfield = new Cat();
 
 	garfield->makeSound();
 	delete garfield;
