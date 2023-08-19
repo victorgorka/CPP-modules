@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:46 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:47 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/08/19 18:27:59 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ class Animal
 		Animal(const Animal &copy);
 		
 		// Destructor
-		~Animal();
+		virtual ~Animal();
 		
 		// Operators
 		Animal & operator=(const Animal &assign);
 
 		// Methods
-		void		makeSound(void) const;
+		virtual void		makeSound(void) const;
 		std::string	getType() const;
 		
 	protected:
