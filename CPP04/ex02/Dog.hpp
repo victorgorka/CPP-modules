@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:02:42 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:43 by vde-prad         ###   ########.fr       */
+/*   Created: 2023/08/09 19:01:51 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/11 20:31:35 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include <iostream>
 # include <string>
-# include "Animal.hpp"
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Dog: public Animal
+class Dog: public AAnimal
 {
 	public:
 		// Constructors
@@ -29,6 +30,16 @@ class Dog: public Animal
 		
 		// Operators
 		Dog & operator=(const Dog &assign);
+		
+		// Methods
+		virtual void	makeSound(void) const;
+		void			setBrain(std::string)const;
+		void			setBrain(Brain *, const Brain *);
+		void			printBrain(void) const;
+
+	private:
+		Brain *brain;
+	
 };
 
 #endif

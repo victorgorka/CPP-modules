@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:02:47 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/19 16:32:32 by vde-prad         ###   ########.fr       */
+/*   Created: 2023/08/09 19:02:00 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/11 19:15:42 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ Animal::Animal()
 
 Animal::Animal(const Animal &copy)
 {
-	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Animal\e[0m" << std::endl;
+	*this = copy;
 }
 
 
@@ -45,8 +45,6 @@ std::string Animal::getType() const { return type;}
 // Operators
 Animal & Animal::operator=(const Animal &assign)
 {
-	std::cout << "Animal assignment operator overload\n";
-	this->type = assign.type;
+	(void)assign;
 	return *this;
 }
-

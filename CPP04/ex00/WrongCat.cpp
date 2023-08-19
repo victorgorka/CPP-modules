@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/09 19:02:34 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/19 16:33:07 by vde-prad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 
@@ -25,7 +37,8 @@ WrongCat::~WrongCat()
 // Operators
 WrongCat & WrongCat::operator=(const WrongCat &assign)
 {
-	(void) assign;
+	std::cout << "WrongCat assignment operator overload\n";
+	this->type = assign.type;
 	return *this;
 }
 

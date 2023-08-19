@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:02:39 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/19 16:32:56 by vde-prad         ###   ########.fr       */
+/*   Created: 2023/08/09 19:01:49 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/19 16:10:16 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ std::string WrongAnimal::getType() const { return type;}
 // Operators
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal &assign)
 {
-	std::cout << "WrongAnimal assignment operator overload\n";
 	this->type = assign.type;
 	return *this;
 }

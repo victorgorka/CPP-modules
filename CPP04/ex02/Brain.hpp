@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:02:42 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/09 19:02:43 by vde-prad         ###   ########.fr       */
+/*   Created: 2023/08/09 19:01:57 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/09 19:01:58 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <string>
-# include "Animal.hpp"
 
-class Dog: public Animal
+class Brain
 {
 	public:
 		// Constructors
-		Dog();
-		Dog(const Dog &copy);
+		Brain();
+		Brain(const Brain &copy);
 		
 		// Destructor
-		~Dog();
+		~Brain();
 		
 		// Operators
-		Dog & operator=(const Dog &assign);
+		Brain & operator=(const Brain &assign);
+
+		// Methods
+		void		setIdeas(std::string);
+		void		setIdeas(Brain *brainA, const Brain *brainB);
+		void		printIdeas(void) const;	
+		std::string	getIdea(int i);
+	private:
+		std::string ideas[100];	
 };
 
 #endif

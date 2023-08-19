@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 19:02:43 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/19 16:32:43 by vde-prad         ###   ########.fr       */
+/*   Created: 2023/08/09 19:02:00 by vde-prad          #+#    #+#             */
+/*   Updated: 2023/08/19 15:33:49 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "AAnimal.hpp"
 
 // Constructors
-Dog::Dog()
+AAnimal::AAnimal()
 {
-	std::cout << "\e[0;33mDefault Constructor called of Dog\e[0m" << std::endl;
-	this->type = "Dog";
+	std::cout << "\e[0;33mDefault Constructor called of Animal\e[0m" << std::endl;
 }
 
-Dog::Dog(const Dog &copy)
+AAnimal::AAnimal(const AAnimal &copy)
 {
-	*this = copy;
-	std::cout << "\e[0;33mCopy Constructor called of Dog\e[0m" << std::endl;
+	(void)copy;
 }
 
 
 // Destructor
-Dog::~Dog()
+AAnimal::~AAnimal()
 {
-	std::cout << "\e[0;31mDestructor called of Dog\e[0m" << std::endl;
+	std::cout << "\e[0;31mDestructor called of Animal\e[0m" << std::endl;
 }
+
+// Methods
+std::string AAnimal::getType() const { return type;}
 
 // Operators
-Dog & Dog::operator=(const Dog &assign)
+AAnimal & AAnimal::operator=(const AAnimal &assign)
 {
-	std::cout << "Cat assignment operator overload\n";
-	this->type = assign.type;
+	(void)assign;
 	return *this;
 }
-
