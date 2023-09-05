@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:01:57 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/11 19:20:40 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/09/01 16:58:33 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Brain
 		Brain(const Brain &copy);
 		
 		// Destructor
-		~Brain();
+		virtual ~Brain();
 		
 		// Operators
 		Brain & operator=(const Brain &assign);

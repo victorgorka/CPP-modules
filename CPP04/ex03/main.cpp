@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:01:28 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/19 16:35:58 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/09/05 13:30:42 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
-// void	leak(void)
-// {
-// 	system("leaks interface");
-// }
+void	leak(void)
+{
+	system("leaks interface");
+}
 
 int main(void)
 {

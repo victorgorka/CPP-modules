@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:41 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/08/19 16:35:23 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/09/01 15:40:27 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
+	delete j;
+	delete i;
+	delete meta;
 
 	Dog *doggo = new Dog();
 	Dog roggo = Dog();
@@ -42,9 +45,6 @@ int main()
 	pussInBoots.makeSound();
 
 	delete doggo;
-	delete meta;
-	delete j;
-	delete i;
 	// atexit(leak);
 	return 0;
 }
