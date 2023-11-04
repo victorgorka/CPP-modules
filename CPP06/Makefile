@@ -2,7 +2,8 @@
 NAME = convert
 CFLAG = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
-SRC =	main.cpp 
+SRC =	main.cpp \
+		ScalarConverter.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
