@@ -12,6 +12,17 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 	std::cout << "\e[0;33mCopy Constructor called of Bureaucrat\e[0m" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
+{
+	std::cout << "\e[0;33mConstructor called of Bureaucrat\e[0m" << std::endl;
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+}
+
+// Exceptions
+
 
 // Destructor
 Bureaucrat::~Bureaucrat()
@@ -27,3 +38,8 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign)
 	return *this;
 }
 
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj)
+{
+	os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
+	return os;
+}
