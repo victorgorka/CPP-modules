@@ -16,9 +16,15 @@ class ScalarConverter
 		
 		// Operators
 		ScalarConverter & operator=(const ScalarConverter &assign);
+
+		// Methods
+		
 		
 	private:
-		
+		char	_character;
+		int		_integer;
+		float	_fnum;
+		double	_dnum;
 };
 
 #endif

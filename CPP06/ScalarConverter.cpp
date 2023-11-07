@@ -26,4 +26,3 @@ ScalarConverter & ScalarConverter::operator=(const ScalarConverter &assign)
 	(void) assign;
 	return *this;
 }
-
