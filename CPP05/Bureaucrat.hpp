@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
 
 class Bureaucrat
 {
@@ -23,9 +24,12 @@ public:
 	int					getGrade() const;
 
 	// Methods
-	void incrementGrade();
+	void incrementarade();
 	void decrementGrade();
 
+	// Exceptions
+	class GradeTooHighException;
+	class GradeTooLowException;
 
 private:
 	const std::string 	_name;

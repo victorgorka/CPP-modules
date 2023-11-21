@@ -22,7 +22,21 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 }
 
 // Exceptions
+class Bureaucrat::GradeTooHighException: public std::exception
+{
+	virtual const char *what() const throw()
+	{
+		return "";
+	}
+};
 
+class Bureaucrat::GradeTooLowException: public std::exception
+{
+	virtual const char *what() const throw()
+	{
+		return "";
+	}
+};
 
 // Destructor
 Bureaucrat::~Bureaucrat()
