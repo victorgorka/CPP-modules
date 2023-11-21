@@ -20,11 +20,11 @@ public:
 	Bureaucrat &operator=(const Bureaucrat &assign);
 
 	// Getters
-	const std::string	getName() const;
-	int					getGrade() const;
+	const std::string	getName(void) const;
+	int					getGrade(void) const;
 
 	// Methods
-	void incrementarade();
+	void incrementGrade();
 	void decrementGrade();
 
 	// Exceptions
