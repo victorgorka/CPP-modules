@@ -9,12 +9,12 @@ class Bureaucrat
 {
 public:
 	// Constructors
-	Bureaucrat();
+	Bureaucrat(void);
 	Bureaucrat(const Bureaucrat &copy);
 	Bureaucrat(const std::string name, int grade);
 
 	// Destructor
-	~Bureaucrat();
+	~Bureaucrat(void);
 
 	// Operators
 	Bureaucrat &operator=(const Bureaucrat &assign);
@@ -24,8 +24,8 @@ public:
 	int					getGrade(void) const;
 
 	// Methods
-	void incrementGrade();
-	void decrementGrade();
+	void incrementGrade(void);
+	void decrementGrade(void);
 
 	// Exceptions
 	class GradeTooHighException;
