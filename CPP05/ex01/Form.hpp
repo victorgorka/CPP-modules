@@ -9,6 +9,7 @@ class Form
 	public:
 		// Constructors
 		Form();
+		Form(std::string, int, int);
 		Form(const Form &copy);
 		
 		// Destructor
@@ -18,7 +19,10 @@ class Form
 		Form & operator=(const Form &assign);
 		
 	private:
-		
+		const std::string	_name;
+		bool				_status; // at construction its not
+		const int			_gradeToSign;
+		const int			_gradeToExe;
 };
 
 #endif
