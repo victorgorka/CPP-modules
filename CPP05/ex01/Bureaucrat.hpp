@@ -26,7 +26,7 @@ public:
 	// Methods
 	void	incrementGrade(void);
 	void	decrementGrade(void);
-	void	signForm(Form &f); // Implementar
+	void	signForm(Form &form); 
 
 	// Exceptions
 	class GradeTooHighException;

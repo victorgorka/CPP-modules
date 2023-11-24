@@ -61,12 +61,16 @@ const int			Form::getGradeToExecute(void) const	{return this->_gradeToExe;}
 void				Form::setStatus(const bool status) {this->_status = status;}
 
 // Methods
-void				Form::beSigned(Bureaucrat &bureau)
+bool				Form::beSigned(Bureaucrat &bureau)
 {
 	if (bureau.getGrade() <= this->getGradeToSign())
 		this->setStatus(true);
 	else
+	{
 		throw GradeTooLowException;
+		return false;
+	}
+	return true;
 }
 
 // Operators
