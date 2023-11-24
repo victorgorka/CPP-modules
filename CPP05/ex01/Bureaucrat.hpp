@@ -24,8 +24,9 @@ public:
 	int					getGrade(void) const;
 
 	// Methods
-	void incrementGrade(void);
-	void decrementGrade(void);
+	void	incrementGrade(void);
+	void	decrementGrade(void);
+	void	signForm(Form &f); // Implementar
 
 	// Exceptions
 	class GradeTooHighException;

@@ -24,8 +24,8 @@ Bureaucrat::Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+	: this->_name(copy.getName()), this->_grade(copy.getGrade)
 {
-	(void) copy;
 	std::cout << "\e[0;33mCopy Constructor called of Bureaucrat\e[0m" << std::endl;
 }
 
@@ -42,6 +42,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 // Getters
 const std::string	Bureaucrat::getName() const		{return _name;}
 int					Bureaucrat::getGrade() const	{return _grade;}
+
 
 // Methods
 void Bureaucrat::incrementGrade(void)

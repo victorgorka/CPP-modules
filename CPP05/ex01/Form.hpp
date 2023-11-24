@@ -17,10 +17,26 @@ class Form
 		
 		// Operators
 		Form & operator=(const Form &assign);
-		
+
+		// Getters
+		const std::string	getName(void) const;
+		const bool			getStatus(void) const;
+		const int			getGradeToSign(void) const;
+		const int			getGradeToExecute(void) const;
+
+		// Setters
+		void				setStatus(const bool status);
+
+		// Methods
+		void	beSigned(Bureaucrat &bureau);
+
+		// Exceptions
+		class GradeTooHighException;
+		class GradeTooLowException;
+
 	private:
 		const std::string	_name;
-		bool				_status; // at construction its not
+		bool				_status;
 		const int			_gradeToSign;
 		const int			_gradeToExe;
 };
