@@ -9,7 +9,6 @@ class Bureaucrat
 {
 public:
 	// Constructors
-	Bureaucrat(void);
 	Bureaucrat(const Bureaucrat &copy);
 	Bureaucrat(const std::string name, int grade);
 
@@ -32,6 +31,7 @@ public:
 	class GradeTooLowException;
 
 private:
+	Bureaucrat(void);
 	const std::string 	_name;
 	int					_grade;
 };

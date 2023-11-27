@@ -4,37 +4,39 @@
 # include <iostream>
 # include <string>
 # include <exception>
+class Form;
+# include "Form.hpp"
 
 class Bureaucrat
 {
-public:
-	// Constructors
-	Bureaucrat(void);
-	Bureaucrat(const Bureaucrat &copy);
-	Bureaucrat(const std::string name, int grade);
+	public:
+		// Constructors
+		Bureaucrat(const Bureaucrat &copy);
+		Bureaucrat(const std::string name, int grade);
 
-	// Destructor
-	~Bureaucrat(void);
+		// Destructor
+		~Bureaucrat(void);
 
-	// Operators
-	Bureaucrat &operator=(const Bureaucrat &assign);
+		// Operators
+		Bureaucrat &operator=(const Bureaucrat &assign);
 
-	// Getters
-	const std::string	getName(void) const;
-	int					getGrade(void) const;
+		// Getters
+		const std::string	getName(void) const;
+		int					getGrade(void) const;
 
-	// Methods
-	void	incrementGrade(void);
-	void	decrementGrade(void);
-	void	signForm(Form &form); 
+		// Methods
+		void	incrementGrade(void);
+		void	decrementGrade(void);
+		void	signForm(Form &form); 
 
-	// Exceptions
-	class GradeTooHighException;
-	class GradeTooLowException;
+		// Exceptions
+		class GradeTooHighException;
+		class GradeTooLowException;
 
-private:
-	const std::string 	_name;
-	int					_grade;
+	private:
+		Bureaucrat(void);
+		const std::string 	_name;
+		int					_grade;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);

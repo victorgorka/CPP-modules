@@ -1,32 +1,23 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
-	// Create a bureaucrat with a high grade
-	Bureaucrat highGradeBureaucrat("John", 1);
 
-	// Create a bureaucrat with a low grade
-	Bureaucrat lowGradeBureaucrat("Jane", 150);
-
-	// Try to create a bureaucrat with an invalid grade
-	try {
-		Bureaucrat invalidGradeBureaucrat("Invalid", 200);
-	} catch (std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
+	try{
+		// Create a Bureaucrat authorized to sign a tigPardon
+		Bureaucrat tigPardonAuthorized("Cerberus", 42);
+	
+		// Create a Form with high grade for signing
+		Form	tigPardon("Tig Pardon", 43, 5);
+		tigPardonAuthorized.signForm(tigPardon);
+		// Too high grade for signing
+		Form	microwaveRequest("Microwave", 0, 5);
+		// Too low level for signing
+		Form	retrocat("retrocat", 151, 5);
 	}
-
-	// Try to increment the grade of a bureaucrat with the highest grade
-	try {
-		highGradeBureaucrat.incrementGrade();
-	} catch (std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
 	}
-
-	// Try to decrement the grade of a bureaucrat with the lowest grade
-	try {
-		lowGradeBureaucrat.decrementGrade();
-	} catch (std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
-	}
-
 	return 0;
 }

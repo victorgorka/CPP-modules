@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
+class Bureaucrat;
+# include "Bureaucrat.hpp"
 
 class Form
 {
@@ -20,15 +23,15 @@ class Form
 
 		// Getters
 		const std::string	getName(void) const;
-		const bool			getStatus(void) const;
-		const int			getGradeToSign(void) const;
-		const int			getGradeToExecute(void) const;
+		bool				getStatus(void) const;
+		int					getGradeToSign(void) const;
+		int					getGradeToExecute(void) const;
 
 		// Setters
 		void				setStatus(const bool status);
 
 		// Methods
-		void	beSigned(Bureaucrat &bureau);
+		bool				beSigned(Bureaucrat &bureau);
 
 		// Exceptions
 		class GradeTooHighException;

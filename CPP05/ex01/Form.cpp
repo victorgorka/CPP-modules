@@ -29,16 +29,16 @@ Form::Form(std::string name, int signGrade, int execGrade)
 		_gradeToExe(execGrade)
 {
 	if (signGrade > 150 || execGrade > 150)
-		throw GradeTooLowException;
+		throw GradeTooLowException();
 	else if (signGrade < 1 || execGrade < 1)
-		throw GradeTooHighException;
+		throw GradeTooHighException();
 }
 
 Form::Form(const Form &copy)
-	:	_status(copy._status),
+	:	_name(copy._name),
+		_status(copy._status),
 		_gradeToSign(copy._gradeToSign),
-		_gradeToExe(copy._gradeToExe),
-		_name(copy._name)
+		_gradeToExe(copy._gradeToExe)
 {
 	(void) copy;
 	std::cout << "\e[0;33mCopy Constructor called of Form\e[0m" << std::endl;
@@ -52,10 +52,10 @@ Form::~Form()
 }
 
 // Getters
-const std::string	Form::getName(void) const				{return this->_name;}
-const bool			Form::getStatus(void) const			{return this->_status;}
-const int			Form::getGradeToSign(void) const		{return this->_gradeToSign;}
-const int			Form::getGradeToExecute(void) const	{return this->_gradeToExe;}
+const std::string	Form::getName(void) const			{return this->_name;}
+bool				Form::getStatus(void) const			{return this->_status;}
+int					Form::getGradeToSign(void) const	{return this->_gradeToSign;}
+int					Form::getGradeToExecute(void) const	{return this->_gradeToExe;}
 
 // Setters
 void				Form::setStatus(const bool status) {this->_status = status;}
@@ -67,7 +67,7 @@ bool				Form::beSigned(Bureaucrat &bureau)
 		this->setStatus(true);
 	else
 	{
-		throw GradeTooLowException;
+		throw GradeTooLowException();
 		return false;
 	}
 	return true;
@@ -80,7 +80,7 @@ Form & Form::operator=(const Form &assign)
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj)
+std::ostream &operator<<(std::ostream &os, const Form &obj)
 {
 	os << "Name: " << obj.getName() 
 		<< "Status: " << obj.getStatus()
