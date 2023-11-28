@@ -1,7 +1,7 @@
 #include "AForm.hpp"
 
 // Exceptions
-class	AForm::GradeTooHighException: public std::exception
+class	AForm::GradeTooHighException : public std::exception
 {
 	virtual const char *what() const throw()
 	{
@@ -9,11 +9,19 @@ class	AForm::GradeTooHighException: public std::exception
 	}
 };
 
-class	AForm::GradeTooLowException: public std::exception
+class	AForm::GradeTooLowException : public std::exception
 {
 	virtual const char *what() const throw()
 	{
 		return "Grade Too Low";
+	}
+};
+
+class	AForm::FormNotSignedException : public std::exception
+{
+	virtual const char *what() const throw()
+	{
+		return "Form Not Signed";
 	}
 };
 
@@ -72,7 +80,7 @@ bool				AForm::beSigned(Bureaucrat &bureau)
 	return true;
 }
 
-virtual void		execute(Bureaucrat &bureau)
+void		AForm::execute(Bureaucrat const &bureau) const
 {
 	if (this->getGradeToExecute() < bureau.getGrade())
 		GradeTooLowException();

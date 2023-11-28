@@ -10,16 +10,17 @@ class RobotomyRequestForm : public AForm
 {
 	public:
 		// Constructors
+		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(const RobotomyRequestForm &copy);
 		
 		// Destructor
-		~RobotomyRequestForm();
+		virtual ~RobotomyRequestForm();
 
 		// Getters
-		std::string	getTarget(void);
+		std::string	getTarget(void) const;
 
 		// Methods
-		void	execute(Bureaucrat &bureau);
+		void		execute(Bureaucrat const &bureau) const;
 		
 		// Operators
 		RobotomyRequestForm & operator=(const RobotomyRequestForm &assign);

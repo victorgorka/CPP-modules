@@ -4,6 +4,9 @@ CFLAG = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
 SRC =	main.cpp \
 		Bureaucrat.cpp \
+		PresidentialPardonForm.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
 		AForm.cpp
 
 OBJS = $(SRC:.cpp=.o)

@@ -25,13 +25,14 @@ PresidentialPardonForm::~PresidentialPardonForm()
 }
 
 // Getters
-std::string	PresidentialPardonForm::getTarget(void)	{return _target;}
+std::string	PresidentialPardonForm::getTarget(void) const	{return _target;}
 
 // Method
-void	PresidentialPardonForm(Bureaucrat &bureau)
+void	PresidentialPardonForm::execute(Bureaucrat const &bureau) const
 {
 	AForm::execute(bureau);
-	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << this->getTarget()
+		<< " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
 // Operators

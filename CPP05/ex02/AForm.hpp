@@ -32,7 +32,7 @@ class AForm
 
 		// Methods
 		bool				beSigned(Bureaucrat &bureau);
-		virtual void		execute(Bureaucrat &bureau) = 0;
+		virtual void		execute(Bureaucrat const &bureau) const = 0;
 
 		// Exceptions
 		class GradeTooHighException;

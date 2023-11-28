@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm
 {
@@ -13,13 +13,13 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(const PresidentialPardonForm &copy);
 		
 		// Destructor
-		~PresidentialPardonForm();
+		virtual ~PresidentialPardonForm();
 		
 		// Getters
-		std::string	getTarget(void);
+		std::string	getTarget(void) const;
 
 		// Methods
-		void	execute(Bureaucrat &bureau);
+		void		execute(Bureaucrat const &bureau) const;
 
 		// Operators
 		PresidentialPardonForm & operator=(const PresidentialPardonForm &assign);

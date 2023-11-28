@@ -1,19 +1,25 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main() {
 
 	try{
-		// Create a Bureaucrat authorized to sign a tigPardon
-		Bureaucrat tigPardonAuthorized("Cerberus", 42);
-	
-		// Create a AForm with high grade for signing
-		AForm	tigPardon("Tig Pardon", 43, 5);
-		tigPardonAuthorized.signAForm(tigPardon);
-		// Too high grade for signing
-		AForm	microwaveRequest("Microwave", 0, 5);
-		// Too low level for signing
-		AForm	retrocat("retrocat", 151, 5);
+		Bureaucrat	juan("juan", 120);
+		Bureaucrat	pepe("pepe", 50);
+		Bureaucrat	alfonso("alfonso", 1);
+		RobotomyRequestForm robot("Bender");
+		PresidentialPardonForm pardon("Victoru");
+		ShrubberyCreationForm tree("house");
+		juan.signForm(tree);
+		juan.executeForm(tree);
+		pepe.signForm(robot);
+		pepe.executeForm(robot);
+		alfonso.executeForm(robot);
+		alfonso.signForm(pardon);
+		alfonso.executeForm(pardon);
 	}
 	catch(std::exception &e)
 	{

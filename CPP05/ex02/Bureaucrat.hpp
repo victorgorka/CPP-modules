@@ -27,7 +27,8 @@ class Bureaucrat
 		// Methods
 		void	incrementGrade(void);
 		void	decrementGrade(void);
-		void	signAForm(AForm &AForm); 
+		void	signForm(AForm &form); 
+		void	executeForm(AForm const &form) const;
 
 		// Exceptions
 		class GradeTooHighException;

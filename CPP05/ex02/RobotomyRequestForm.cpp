@@ -6,10 +6,14 @@ RobotomyRequestForm::RobotomyRequestForm()
 	std::cout << "\e[0;33mDefault Constructor called of RobotomyRequestForm\e[0m" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy)
-	: AForm("RobotomyRequestForm", 72, 45), _target(copy.getTarget())
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+	: AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
-	(void) copy;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy)
+	: AForm(copy), _target(copy.getTarget())
+{
 	std::cout << "\e[0;33mCopy Constructor called of RobotomyRequestForm\e[0m" << std::endl;
 }
 
@@ -21,12 +25,12 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 // Getters
-std::string	RobotomyRequestForm::getTarget(void) {return _target;}
+std::string	RobotomyRequestForm::getTarget(void) const {return _target;}
 
 // Methods
-void	execute(Bureaucrat &bureau)
+void	RobotomyRequestForm::execute(Bureaucrat const &bureau) const
 {
-	AForm(bureau);
+	AForm::execute(bureau);
 	std::cout << "drilling noises.. ";
 	std::srand(std::time(nullptr));
 	if (std::rand() % 2)
