@@ -16,6 +16,7 @@ int main() {
 		juan.signForm(tree);
 		juan.executeForm(tree);
 		pepe.signForm(robot);
+		// pepe must fails in the execution of robot
 		pepe.executeForm(robot);
 		alfonso.executeForm(robot);
 		alfonso.signForm(pardon);

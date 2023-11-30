@@ -83,9 +83,9 @@ bool				AForm::beSigned(Bureaucrat &bureau)
 void		AForm::execute(Bureaucrat const &bureau) const
 {
 	if (this->getGradeToExecute() < bureau.getGrade())
-		GradeTooLowException();
+		throw GradeTooLowException();
 	else if (this->getStatus() == false)
-		FormNotSignedException();
+		throw FormNotSignedException();
 }
 
 // Operators
