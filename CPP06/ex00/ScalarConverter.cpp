@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:51 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/01 18:24:53 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:40:27 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,22 @@ void	ScalarConverter::checkIFD(void)
 	{
 		bool sign = true;
 
-		if (sign && _raw[i] != '-')
+		if (sign && _raw[i] == '-')
 			sign = false;
-		else if (_raw[i])
-		
+		else if (std::isdigit(_raw[i])
+				&& _raw[i + 1] == std::string::npos)
+		{
+			type = integer;
+			
+			return ;
+		}
+		else if (!std::isdigit(_raw[i]))
+			break;
+	}
+	// Checks if raw is a float
+	for (int i = 0; _raw[i] != std::string::npos; i++)
+	{
+
 	}
 }
 
