@@ -6,11 +6,20 @@
 /*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:51 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/02 17:30:57 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/02 18:49:59 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+std::string 			ScalarConverter::_raw = "";
+char					ScalarConverter::_character = 0;
+int						ScalarConverter::_integer = 0;
+float					ScalarConverter::_fNum = 0.0;
+double					ScalarConverter::_dNum = 0.0;
+bool					ScalarConverter::_fail[4] = {false, false, false, false};
+int						ScalarConverter::_size = 0;
+ScalarConverter::Type	ScalarConverter::type = indefer;
 
 // Constructors
 ScalarConverter::ScalarConverter()
@@ -28,14 +37,6 @@ ScalarConverter::ScalarConverter(const ScalarConverter &copy)
 void	ScalarConverter::convert(std::string raw)
 {
 	_raw = raw;
-	const char *enumString[] {
-		"-inff",
-		"+inff",
-		"nanf",
-		"-inf",
-		"+inf",
-		"nan"
-	}
 	for (int i = 0; i < 4; i++)
 		_fail[i] = false;
 	// Check if type is character or indefer
@@ -66,21 +67,38 @@ void	ScalarConverter::convert(std::string raw)
 	}
 	else // Check if ttype is integer, floater or doubler
 		checkIFD();
-	cast(); // Explicit casting of the value given to the other three
+	// cast(); // Explicit casting of the value given to the other three
 	// printTypes(); // print all values casted
+	switch (type)
+	{
+		case 0:
+			std::cout << "character: " << _character << std::endl;
+			break;
+		case 1:
+			std::cout << "integer: " << _integer << std::endl;
+			break;
+		case 2:
+			std::cout << "floater: " << _fNum << std::endl;
+			break;
+		case 3:
+			std::cout << "doubler: " << _dNum << std::endl;
+			break;
+		case 4:
+			std::cout << "indefer\n";
+			break;
+	}
 }
 
 void	ScalarConverter::checkIFD(void)
 {
 	// Checks if raw is an integer
-	for (int i = 0; _raw[i] != std::string::npos; i++)
+	for (int i = 0; (unsigned long)i < _raw.size(); i++)
 	{
 		bool sign = true;
 
 		if (sign && _raw[i] == '-')
 			sign = false;
-		else if (std::isdigit(_raw[i])
-				&& _raw[i + 1] == std::string::npos)
+		else if (std::isdigit(_raw[i]) && (unsigned long)i + 1 == _raw.size())
 		{
 			type = integer;
 			_integer = std::atoi(_raw.c_str());
@@ -102,11 +120,11 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 		_fail[character] = _fail[integer] = _fail[floater] = _fail[doubler] = true;
 		return ;
 	}
-	for (int j = i + 1; _raw[j] != std::string::npos; j++)
+	for (int j = i + 1; (unsigned long)j < _raw.size(); j++)
 	{
-		if (!std::isdigit(_raw[j]) && _raw[j] == 'f')
+		if (!std::isdigit(_raw[j]))
 		{
-			if (_raw[j + 1] == std::string::npos)
+			if (_raw[j] == 'f' && (unsigned long)j + 1 == _raw.size())
 			{
 				type = floater;
 				_fNum = std::atof(_raw.c_str());
@@ -114,7 +132,7 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 			else
 				break;
 		}
-		else if (std::isdigit(_raw[j]) && _raw[j + 1] == std::string::npos)
+		else if (std::isdigit(_raw[j]) && (unsigned long)j + 1 == _raw.size())
 		{
 			type = doubler;
 			_dNum = std::atof(_raw.c_str());
@@ -124,10 +142,10 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 	_fail[character] = _fail[integer] = _fail[floater] = _fail[doubler] = true;
 }
 
-void	ScalarConverter::cast(void)
-{
+// void	ScalarConverter::cast(void)
+// {
 	
-}
+// }
 
 // Destructor
 ScalarConverter::~ScalarConverter()
