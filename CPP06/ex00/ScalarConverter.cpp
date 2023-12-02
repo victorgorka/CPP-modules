@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:51 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/02 18:49:59 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/02 22:01:59 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter &copy)
 void	ScalarConverter::convert(std::string raw)
 {
 	_raw = raw;
+	_size = _raw.size();
 	for (int i = 0; i < 4; i++)
 		_fail[i] = false;
 	// Check if type is character or indefer
@@ -124,10 +125,12 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 	{
 		if (!std::isdigit(_raw[j]))
 		{
-			if (_raw[j] == 'f' && (unsigned long)j + 1 == _raw.size())
+			if (_raw[j] == 'f' && (unsigned long)j + 1 == _raw.size()
+				&& j != i + 1)
 			{
 				type = floater;
 				_fNum = std::atof(_raw.c_str());
+				return ;
 			}
 			else
 				break;
@@ -136,16 +139,17 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 		{
 			type = doubler;
 			_dNum = std::atof(_raw.c_str());
+			return ;
 		}
 	}
 	type = indefer;
 	_fail[character] = _fail[integer] = _fail[floater] = _fail[doubler] = true;
 }
 
-// void	ScalarConverter::cast(void)
-// {
+void	ScalarConverter::cast(void)
+{
 	
-// }
+}
 
 // Destructor
 ScalarConverter::~ScalarConverter()

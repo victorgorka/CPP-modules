@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:55 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/02 18:48:44 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/02 22:07:11 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,11 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
 
 class ScalarConverter
 {
 	public:
-		// Constructors
-		
-		// Destructor
-		~ScalarConverter();
-		
-		// Operators
-		ScalarConverter & operator=(const ScalarConverter &assign);
-
 		// Methods
 		static void	convert(std::string raw);
 
@@ -34,6 +27,12 @@ class ScalarConverter
 		// Constructors
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
+
+		// Destructor
+		~ScalarConverter();
+		
+		// Operators
+		ScalarConverter & operator=(const ScalarConverter &assign);
 
 		// Mehtods
 		static void	checkIFD(void);
