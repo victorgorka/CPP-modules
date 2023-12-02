@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:55 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/01 18:23:15 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:30:48 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class ScalarConverter
 
 		// Mehtods
 		static void	checkIFD(void);
+		static void	checkDoublerFloater(int i);
+		static void	cast(void);
 
 		// Attributes
 		static std::string	_raw;
