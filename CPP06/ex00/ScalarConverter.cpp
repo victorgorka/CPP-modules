@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vde-prad <vde-prad@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:51 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/02 22:01:59 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/03 13:37:13 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ void	ScalarConverter::convert(std::string raw)
 	}
 	else // Check if ttype is integer, floater or doubler
 		checkIFD();
-	// cast(); // Explicit casting of the value given to the other three
-	// printTypes(); // print all values casted
+	// Testing
 	switch (type)
 	{
 		case 0:
@@ -88,6 +87,9 @@ void	ScalarConverter::convert(std::string raw)
 			std::cout << "indefer\n";
 			break;
 	}
+	// Explicit casting of the value given to the other three
+	cast();
+	printTypes(); // print all values casted
 }
 
 void	ScalarConverter::checkIFD(void)
@@ -118,7 +120,8 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 	if (_raw[i] != '.')
 	{
 		type = indefer;
-		_fail[character] = _fail[integer] = _fail[floater] = _fail[doubler] = true;
+		for (int j = 0; j < 5; j++)
+			_fail[j] = true;
 		return ;
 	}
 	for (int j = i + 1; (unsigned long)j < _raw.size(); j++)
@@ -143,12 +146,47 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 		}
 	}
 	type = indefer;
-	_fail[character] = _fail[integer] = _fail[floater] = _fail[doubler] = true;
+	for (int j = 0; j < 5; j++)
+		_fail[j] = true;
 }
 
 void	ScalarConverter::cast(void)
 {
-	
+	switch (type)
+	{
+		case character:
+			_integer = static_cast<int>(_character);
+			_fNum = static_cast<float>(_character);
+			_dNum = static_cast<double>(_character);
+			break;
+		case integer:
+			_character = static_cast<char>(_integer);
+			_fNum = static_cast<float>(_integer);
+			_dNum = static_cast<double>(_integer);
+			break;
+		case floater:
+			_character = static_cast<char>(_fNum);
+			if (_fNum > std::numeric_limits<int>::max
+				|| _fNum < std::numeric_limits<int>::min)
+				_fail[integer] = true;
+			else
+				_integer = static_cast<int>(_fNum);
+			_dNum = static_cast<double>(_fail);
+			break;
+		case doubler:
+			_character = static_cast<char>(_dNum);
+			if (_dNum > std::numeric_limits<int>::max
+				|| _dNum < std::numeric_limits<int>::min)
+				_fail[integer] = true;
+			else
+				_integer = static_cast<int>(_dNum);
+			if (_dNum > std::numeric_limits<float>::max
+				|| _dNum < std::numeric_limits<float>::min)
+				_fail[float] = true;
+			else
+				_fNum = static_cast<float>(_dNum);
+			break;
+	}
 }
 
 // Destructor
