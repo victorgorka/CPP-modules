@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:55 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/03 13:37:40 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:17:28 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <string>
 # include <cstdlib>
 # include <limits>
+# include <iomanip>
+# include <cmath>
 
 class ScalarConverter
 {
