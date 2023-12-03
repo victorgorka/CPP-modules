@@ -1,8 +1,9 @@
 
-NAME = convert
+NAME = serialize
 CFLAG = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
-SRC =	main.cpp 
+SRC =	main.cpp \
+		Serializer.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
