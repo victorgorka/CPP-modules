@@ -88,7 +88,8 @@ void	ScalarConverter::checkIFD(void)
 		else if (std::isdigit(_raw[i]) && (unsigned long)i + 1 == _raw.size())
 		{
 			_integer = std::atoi(_raw.c_str());
-			if (std::isnan(std::log10(_integer)) || std::log10(_integer) + 1 < _raw.size())
+			if (std::isnan(std::log10(_integer))
+				|| (std::log10(_integer) + 1 < _raw.size() && _integer != 0))
 			{
 				type = indefer;
 				for (int j = 0; j < 5; j++)
