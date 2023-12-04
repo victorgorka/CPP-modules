@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:51 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/03 17:19:39 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:41:09by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,15 @@ void	ScalarConverter::checkIFD(void)
 			sign = false;
 		else if (std::isdigit(_raw[i]) && (unsigned long)i + 1 == _raw.size())
 		{
-			type = integer;
 			_integer = std::atoi(_raw.c_str());
+			if (std::isnan(std::log10(_integer)) || std::log10(_integer) + 1 < _raw.size())
+			{
+				type = indefer;
+				for (int j = 0; j < 5; j++)
+					_fail[j] = true;
+			}
+			else
+				type = integer;
 			return ;
 		}
 		else if (!std::isdigit(_raw[i]))
@@ -159,17 +166,15 @@ void	ScalarConverter::cast(void)
 			break;
 		case doubler:
 			_character = static_cast<char>(_dNum);
+			_integer = static_cast<int>(_dNum);
 			if (_dNum > std::numeric_limits<int>::max()
 				|| _dNum < std::numeric_limits<int>::min())
 				_fail[integer] = true;
-			else
-				_integer = static_cast<int>(_dNum);
+			_fNum = static_cast<float>(_dNum);
 			if ((_dNum > std::numeric_limits<float>::max()
 				|| _dNum < std::numeric_limits<float>::min())
 				&& (_raw != "+inf" && _raw != "-inf"))
 				_fail[floater] = true;
-			else
-				_fNum = static_cast<float>(_dNum);
 			break;
 		default:
 			break;
@@ -192,7 +197,7 @@ void	ScalarConverter::printTypes() // print all values casted
 		std::cout << _integer << std::endl;
 	std::cout << "float: ";
 	if (_fail[floater])
-		std::cout << "impossible" << std::endl;
+		std::cout << "nanf" << std::endl;
 	else
 	{
 		std::cout << std::setprecision(std::numeric_limits<float>::digits10 + 1) << _fNum;	
@@ -203,7 +208,7 @@ void	ScalarConverter::printTypes() // print all values casted
 	}
 	std::cout << "double: ";
 	if (_fail[doubler])
-		std::cout << "impossible" << std::endl;
+		std::cout << "nan" << std::endl;
 	else
 	{
 		std::cout << std::setprecision(std::numeric_limits<double>::digits10 + 1) << _dNum;
