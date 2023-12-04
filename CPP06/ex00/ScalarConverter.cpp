@@ -6,7 +6,7 @@
 /*   By: vde-prad <vde-prad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:51:51 by vde-prad          #+#    #+#             */
-/*   Updated: 2023/12/03 17:19:39 by vde-prad         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:45:16 by vde-prad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,16 @@ void	ScalarConverter::checkIFD(void)
 		else if (std::isdigit(_raw[i]) && (unsigned long)i + 1 == _raw.size())
 		{
 			type = integer;
+			if (std::atof(_raw.c_str()) > INT_MAX
+				|| std::atof(_raw.c_str()) < INT_MIN)
+			{
+				type = indefer;
+				for (int j = 0; j < 5; j++)
+					_fail[j] = true;
+				return ;
+			}
+			if (_integer < 0)
+				_fail[character] = true;
 			_integer = std::atoi(_raw.c_str());
 			return ;
 		}
@@ -117,6 +127,8 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 			{
 				type = floater;
 				_fNum = std::atof(_raw.c_str());
+				if (_fNum < 0)
+					_fail[character] = true;
 				return ;
 			}
 			else
@@ -126,6 +138,8 @@ void	ScalarConverter::checkDoublerFloater(int &i)
 		{
 			type = doubler;
 			_dNum = std::atof(_raw.c_str());
+			if (_dNum < 0)
+				_fail[character] = true;
 			return ;
 		}
 	}
@@ -145,31 +159,34 @@ void	ScalarConverter::cast(void)
 			break;
 		case integer:
 			_character = static_cast<char>(_integer);
+			if (_integer > 127)
+				_fail[character] = true;
 			_fNum = static_cast<float>(_integer);
 			_dNum = static_cast<double>(_integer);
 			break;
 		case floater:
 			_character = static_cast<char>(_fNum);
+			if (_fNum > 127)
+				_fail[character] = true;
+			_integer = static_cast<int>(_fNum);
 			if (_fNum > std::numeric_limits<int>::max()
 				|| _fNum < std::numeric_limits<int>::min())
 				_fail[integer] = true;
-			else
-				_integer = static_cast<int>(_fNum);
 			_dNum = static_cast<double>(_fNum);
 			break;
 		case doubler:
 			_character = static_cast<char>(_dNum);
+			if (_dNum > 127)
+				_fail[character] = true;
+			_integer = static_cast<int>(_dNum);
 			if (_dNum > std::numeric_limits<int>::max()
 				|| _dNum < std::numeric_limits<int>::min())
 				_fail[integer] = true;
-			else
-				_integer = static_cast<int>(_dNum);
+			_fNum = static_cast<float>(_dNum);
 			if ((_dNum > std::numeric_limits<float>::max()
 				|| _dNum < std::numeric_limits<float>::min())
 				&& (_raw != "+inf" && _raw != "-inf"))
 				_fail[floater] = true;
-			else
-				_fNum = static_cast<float>(_dNum);
 			break;
 		default:
 			break;
@@ -179,10 +196,10 @@ void	ScalarConverter::cast(void)
 void	ScalarConverter::printTypes() // print all values casted
 {
 	std::cout << "char: ";
-	if (_character < 0 || _fail[character])
+	if (_character < 0 || _fail[character] || _character > 127)
 		std::cout << "impossible" << std::endl;
 	else if (!std::isprint(_character))
-		std::cout << "Non diplayable" << std::endl;
+		std::cout << "Non diplayable " << std::endl;
 	else
 		std::cout << _character << std::endl;
 	std::cout << "int: ";
@@ -191,7 +208,7 @@ void	ScalarConverter::printTypes() // print all values casted
 	else
 		std::cout << _integer << std::endl;
 	std::cout << "float: ";
-	if (_fail[floater])
+	if (_fail[floater] && !std::isinf((double)_fNum) && !std::isnan((double)_fNum))
 		std::cout << "impossible" << std::endl;
 	else
 	{
@@ -202,7 +219,7 @@ void	ScalarConverter::printTypes() // print all values casted
 			std::cout << "f" << std::endl;
 	}
 	std::cout << "double: ";
-	if (_fail[doubler])
+	if (_fail[doubler] && !std::isinf(_fNum))
 		std::cout << "impossible" << std::endl;
 	else
 	{
