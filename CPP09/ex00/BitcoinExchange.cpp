@@ -6,6 +6,16 @@ BitcoinExchange::BitcoinExchange(const char *file)
 	readCsv(file);
 }
 
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &copy) 
+{
+	*this = copy;
+}
+
+BitcoinExchange	&BitcoinExchange::operator=(BitcoinExchange const &assign)
+{
+	_dataBase = assign._dataBase;
+	return *this;
+}
 
 BitcoinExchange::~BitcoinExchange() {}
 

@@ -25,9 +25,12 @@ class BitcoinExchange
 		void	compute(const char *input);
 		
 		// Operator overloading
-		BitcoinExchange	&Operator(BitcoinExchange const &assign);
+		BitcoinExchange	&operator=(BitcoinExchange const &assign);
 
 	private:
+		// Private constructors
+		BitcoinExchange();
+		
 		// Attributes
 		std::map<time_t, float> _dataBase;
 
