@@ -12,9 +12,9 @@ int main( int argc, char **argv)
 		std::cout << "Error" << std::endl;
 		return 0;
 	}
-	std::vector<int> v = {8, 4, 5, 9 , 9};
+	std::vector<int> v = {8, 4, 5, 9, 1};
 	PmergeMe sequence = PmergeMe();
-	std::vector<int> result = sequence.mergeSort(v);
+	std::vector<int> result = sequence.mergeInsertionSort(v);
 	
 	std::vector<int>::iterator it;
 	for (it = result.begin(); it != result.end(); it++)

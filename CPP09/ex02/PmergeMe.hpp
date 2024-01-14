@@ -16,7 +16,7 @@ class PmergeMe
 		~PmergeMe();
 
 		// Methods
-		std::vector<int>	mergeSort(std::vector<int> v);
+		std::vector<int>	mergeInsertionSort(std::vector<int> v);
 
 		// Operator overloading
 		PmergeMe &operator=(PmergeMe const &assign);
@@ -26,6 +26,7 @@ class PmergeMe
 		std::vector<int>	_vector;
 
 		std::vector<int>	merge(std::vector<int> a, std::vector<int> b);
+		void				insertSort(std::vector<int> &v);
 
 };
 
