@@ -17,65 +17,34 @@ PmergeMe::~PmergeMe()
 }
 
 // Methods
-std::vector<int>	PmergeMe::mergeInsertionSort(std::vector<int> v)
+std::list<int>	PmergeMe::mergeInsertionSortList(std::list<int> l)
+{
+	if (l.size() <= 5) {
+		insertSort(l);
+		return l;
+	} else {
+		std::list<int>::iterator middle = l.begin();
+		for (unsigned long i = 0; i < l.size()/2; i++)
+			middle++;
+		std::list<int> a = mergeInsertionSortList(std::list<int>(l.begin(), middle));
+		std::list<int> b = mergeInsertionSortList(std::list<int>(middle, l.end()));
+		return merge(a, b);
+	}
+}
+
+std::vector<int>	PmergeMe::mergeInsertionSortVector(std::vector<int> v)
 {
 	if (v.size() <= 5) {
 		insertSort(v);
 		return v;
 	} else {
-		std::vector<int> a = mergeInsertionSort(std::vector<int>(v.begin(), v.begin() + v.size()/2));
-		std::vector<int> b = mergeInsertionSort(std::vector<int>(v.begin() + v.size()/2, v.end()));
+		std::vector<int>::iterator middle = v.begin() + v.size() / 2;
+		std::vector<int> a = mergeInsertionSortVector(std::vector<int>(v.begin(), middle));
+		std::vector<int> b = mergeInsertionSortVector(std::vector<int>(middle, v.end()));
 		return merge(a, b);
 	}
 }
 
-std::vector<int>	PmergeMe::merge(std::vector<int> a, std::vector<int> b)
-{
-	std::vector<int>	merged;
-
-	while (a.size() && b.size()) {
-		if (a.front() <= b.front()) {
-			merged.push_back(a.front());
-			a.erase(a.begin());
-		} else {
-			merged.push_back(b.front());
-			b.erase(b.begin());
-		}
-	}
-
-	std::vector<int>::iterator it;
-	if (a.size()) {
-		for (it = a.begin(); it != a.end(); it++)
-			merged.push_back(*it);
-	} else {
-		for (it = b.begin(); it != b.end(); it++)
-			merged.push_back(*it);
-	}
-	return merged;
-}
-
-void	PmergeMe::insertSort(std::vector<int> &v)
-{
-	if (v.size() < 2) {
-		return ;
-	}
-	std::vector<int>::iterator it = v.begin();
-	std::vector<int>::iterator itReverse;
-	std::vector<int>::iterator itPrev;
-	int tmp;
-
-	for (++it; it != v.end(); it++) {
-		tmp = *it;
-		for (
-			itReverse = it, itPrev = it, itPrev--;
-			itReverse != v.begin() && *itPrev > tmp;
-			itReverse--, itPrev--
-		) {
-			*itReverse = *itPrev;
-		}
-		*itReverse = tmp;
-	}
-}
 
 // Operator overloading
 PmergeMe &PmergeMe::operator=(PmergeMe const &assign)
