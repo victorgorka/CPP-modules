@@ -17,6 +17,19 @@ PmergeMe::~PmergeMe()
 }
 
 // Methods
+void			PmergeMe::mergeInsertionSort(int argc, char **argv)
+{
+	if (proccessInput(argc, argv)) {
+		std::cout << "Error" << std::endl;
+		return 0;
+	} else {
+		// Medir tiempo vector
+		mergeInsertionSortVector();
+		// Medir tiempo list
+		mergeInsertionSortList();
+	}
+}
+
 std::list<int>	PmergeMe::mergeInsertionSortList(std::list<int> l)
 {
 	if (l.size() <= 5) {

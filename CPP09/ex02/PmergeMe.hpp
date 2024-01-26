@@ -16,9 +16,7 @@ class PmergeMe
 		~PmergeMe();
 
 		// Methods
-		std::list<int>	mergeInsertionSortList(std::list<int> l);
-		std::vector<int>	mergeInsertionSortVector(std::vector<int> v);
-
+		void				mergeInsertionSort(int argc, char **argv);
 
 		// Operator overloading
 		PmergeMe &operator=(PmergeMe const &assign);
@@ -27,6 +25,8 @@ class PmergeMe
 		std::list<int>		_list;
 		std::vector<int>	_vector;
 
+		std::list<int>		mergeInsertionSortList(std::list<int> l);
+		std::vector<int>	mergeInsertionSortVector(std::vector<int> v);
 		template<typename T>
 		T		merge(T a, T b);
 		template<typename T>
