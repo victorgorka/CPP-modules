@@ -4,6 +4,7 @@
 # include <iostream>
 # include <list>
 # include <vector>
+# include <limits>
 
 class PmergeMe
 {
@@ -31,7 +32,7 @@ class PmergeMe
 		T		merge(T a, T b);
 		template<typename T>
 		void	insertSort(T &v);
-
+		bool	proccessInput(int argc, char **argv);
 };
 
 template<typename T>
