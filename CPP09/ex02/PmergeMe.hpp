@@ -37,6 +37,7 @@ class PmergeMe
 		template<typename T>
 		void	insertSort(T &v);
 		bool	proccessInput(int argc, char **argv);
+		void	printResults(std::vector<int> vectorResult, std::list<int> listResult, int argc, char **argv);
 };
 
 template<typename T>

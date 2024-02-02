@@ -6,6 +6,11 @@
 // 	return std::vector<int>
 // }
 
+void	leak(void)
+{
+	system("leaks PmergeMe");
+}
+
 int main( int argc, char **argv)
 {
 	(void)argv;
@@ -15,7 +20,7 @@ int main( int argc, char **argv)
 	}
 	PmergeMe sequence = PmergeMe();
 	sequence.mergeInsertionSort(argc, argv);
-	
+	// atexit(leak);	
 	// std::vector<int>::iterator it;
 	// for (it = result.begin(); it != result.end(); it++)
 	// 	std::cout << *it << " ";

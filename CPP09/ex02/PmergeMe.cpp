@@ -68,7 +68,12 @@ void			PmergeMe::mergeInsertionSort(int argc, char **argv)
 		listResult = mergeInsertionSortList(_list);
 		gettimeofday(&eTimeList, NULL);
 		_listSortTime = getMicroSecs(&eTimeList) - getMicroSecs(&sTimeList);
+		printResults(vectorResult, listResult, argc, argv);
+	}
+}
 
+void	PmergeMe::printResults(std::vector<int> vectorResult, std::list<int> listResult, int argc, char **argv)
+{
 		std::cout << "Before: ";
 		for (int i = 1; i < argc; i++) {
 			std::cout << argv[i] << " ";
@@ -92,7 +97,6 @@ void			PmergeMe::mergeInsertionSort(int argc, char **argv)
 		std::cout << "Time to process a range of " << argc - 1
 					<< " elements with std::list : "
 					<< _listSortTime << " us" << std::endl;
-	}
 }
 
 std::list<int>	PmergeMe::mergeInsertionSortList(std::list<int> l)
