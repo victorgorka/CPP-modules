@@ -17,6 +17,11 @@ PmergeMe::~PmergeMe()
 }
 
 // Methods
+static double	getMicroSecs(struct timeval *time)
+{
+	return ((time->tv_sec * 1e6) + time->tv_usec);
+}
+
 static bool	checkNum(char *num)
 {
 	for (int i = 0; num[i] != '\0'; i++) {
@@ -53,9 +58,16 @@ void			PmergeMe::mergeInsertionSort(int argc, char **argv)
 		std::cout << "Error" << std::endl;
 	} else {
 		// Medir tiempo vector
+		struct timeval	sTimeVector, eTimeVector, sTimeList, eTimeList;
+		gettimeofday(&sTimeVector, NULL);
 		vectorResult = mergeInsertionSortVector(_vector);
+		gettimeofday(&eTimeVector, NULL);
+		_vectorSortTime = getMicroSecs(&eTimeVector) - getMicroSecs(&sTimeVector);
 		// Medir tiempo list
+		gettimeofday(&sTimeList, NULL);
 		listResult = mergeInsertionSortList(_list);
+		gettimeofday(&eTimeList, NULL);
+		_listSortTime = getMicroSecs(&eTimeList) - getMicroSecs(&sTimeList);
 
 		std::cout << "Before: ";
 		for (int i = 1; i < argc; i++) {
@@ -74,6 +86,12 @@ void			PmergeMe::mergeInsertionSort(int argc, char **argv)
 			std::cout << *itL << " ";
 		}
 		std::cout << std::endl;
+		std::cout << "Time to process a range of " << argc - 1
+					<< " elements with std::vector : "
+					<< _vectorSortTime << " us" << std::endl;
+		std::cout << "Time to process a range of " << argc - 1
+					<< " elements with std::list : "
+					<< _listSortTime << " us" << std::endl;
 	}
 }
 

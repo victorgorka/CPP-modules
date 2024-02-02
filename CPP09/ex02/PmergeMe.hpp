@@ -2,9 +2,11 @@
 # define PMERGEME_HPP
 
 # include <iostream>
+# include <ctime>
 # include <list>
 # include <vector>
 # include <limits>
+# include <sys/time.h>
 
 class PmergeMe
 {
@@ -20,11 +22,13 @@ class PmergeMe
 		void				mergeInsertionSort(int argc, char **argv);
 
 		// Operator overloading
-		PmergeMe &operator=(PmergeMe const &assign);
+		PmergeMe			&operator=(PmergeMe const &assign);
 
 	private:
 		std::list<int>		_list;
 		std::vector<int>	_vector;
+		double				_listSortTime;
+		double				_vectorSortTime;
 
 		std::list<int>		mergeInsertionSortList(std::list<int> l);
 		std::vector<int>	mergeInsertionSortVector(std::vector<int> v);
