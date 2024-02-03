@@ -53,21 +53,26 @@ void			PmergeMe::mergeInsertionSort(int argc, char **argv)
 {
 	std::vector<int>	vectorResult;
 	std::list<int>		listResult;
+	struct timeval		sInitTime, eInitTime;
+	double				initElapsedTime;
 
+	gettimeofday(&sInitTime, NULL);
 	if (!proccessInput(argc, argv)) {
 		std::cout << "Error" << std::endl;
 	} else {
+		gettimeofday(&eInitTime, NULL);
+		initElapsedTime = getMicroSecs(&eInitTime) - getMicroSecs(&sInitTime);
 		// Medir tiempo vector
 		struct timeval	sTimeVector, eTimeVector, sTimeList, eTimeList;
 		gettimeofday(&sTimeVector, NULL);
 		vectorResult = mergeInsertionSortVector(_vector);
 		gettimeofday(&eTimeVector, NULL);
-		_vectorSortTime = getMicroSecs(&eTimeVector) - getMicroSecs(&sTimeVector);
+		_vectorSortTime = getMicroSecs(&eTimeVector) - getMicroSecs(&sTimeVector) + initElapsedTime;
 		// Medir tiempo list
 		gettimeofday(&sTimeList, NULL);
 		listResult = mergeInsertionSortList(_list);
 		gettimeofday(&eTimeList, NULL);
-		_listSortTime = getMicroSecs(&eTimeList) - getMicroSecs(&sTimeList);
+		_listSortTime = getMicroSecs(&eTimeList) - getMicroSecs(&sTimeList) + initElapsedTime;
 		printResults(vectorResult, listResult, argc, argv);
 	}
 }
