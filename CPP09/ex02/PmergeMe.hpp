@@ -7,6 +7,7 @@
 # include <vector>
 # include <limits>
 # include <sys/time.h>
+# define SUB_GROUPS 120
 
 class PmergeMe
 {
@@ -37,6 +38,7 @@ class PmergeMe
 		template<typename T>
 		void	insertSort(T &v);
 		bool	proccessInput(int argc, char **argv);
+		bool	isSorted(std::vector<int> &vec);
 		void	printResults(std::vector<int> vectorResult, std::list<int> listResult, int argc, char **argv);
 };
 

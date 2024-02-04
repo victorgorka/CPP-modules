@@ -49,6 +49,17 @@ bool			PmergeMe::proccessInput(int argc, char **argv)
 	return true;
 }
 
+
+bool	PmergeMe::isSorted(std::vector<int> &vec)
+{
+	for (unsigned long i = 0; i < vec.size(); i++) {
+		if (i + 1 != _vector.size() && vec[i] > vec[i + 1]) {
+			return false;
+		}
+	}
+	return true;
+}
+
 void			PmergeMe::mergeInsertionSort(int argc, char **argv)
 {
 	std::vector<int>	vectorResult;
@@ -59,9 +70,11 @@ void			PmergeMe::mergeInsertionSort(int argc, char **argv)
 	gettimeofday(&sInitTime, NULL);
 	if (!proccessInput(argc, argv)) {
 		std::cout << "Error" << std::endl;
-	} else {
-		gettimeofday(&eInitTime, NULL);
-		initElapsedTime = getMicroSecs(&eInitTime) - getMicroSecs(&sInitTime);
+		return ;
+	}
+	gettimeofday(&eInitTime, NULL);
+	initElapsedTime = getMicroSecs(&eInitTime) - getMicroSecs(&sInitTime);
+	if (!isSorted(_vector)) {
 		// Medir tiempo vector
 		struct timeval	sTimeVector, eTimeVector, sTimeList, eTimeList;
 		gettimeofday(&sTimeVector, NULL);
@@ -73,7 +86,13 @@ void			PmergeMe::mergeInsertionSort(int argc, char **argv)
 		listResult = mergeInsertionSortList(_list);
 		gettimeofday(&eTimeList, NULL);
 		_listSortTime = getMicroSecs(&eTimeList) - getMicroSecs(&sTimeList) + initElapsedTime;
-		printResults(vectorResult, listResult, argc, argv);
+		if (isSorted(vectorResult)) {
+			printResults(vectorResult, listResult, argc, argv);
+		} else {
+			std::cout << "Not sorted" << std::endl;
+		}
+	} else {
+		std::cout << "already sorted" << std::endl;
 	}
 }
 
@@ -106,7 +125,7 @@ void	PmergeMe::printResults(std::vector<int> vectorResult, std::list<int> listRe
 
 std::list<int>	PmergeMe::mergeInsertionSortList(std::list<int> l)
 {
-	if (l.size() <= 5) {
+	if (l.size() <= SUB_GROUPS) {
 		insertSort(l);
 		return l;
 	} else {
@@ -121,7 +140,7 @@ std::list<int>	PmergeMe::mergeInsertionSortList(std::list<int> l)
 
 std::vector<int>	PmergeMe::mergeInsertionSortVector(std::vector<int> v)
 {
-	if (v.size() <= 5) {
+	if (v.size() <= SUB_GROUPS) {
 		insertSort(v);
 		return v;
 	} else {
